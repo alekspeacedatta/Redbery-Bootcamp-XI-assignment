@@ -1,5 +1,5 @@
-import MainLayout from "@/app/layouts/MainLayout";
-import HomePage from "@/pages/HomePage";
+import { HomePage } from "@/pages/home";
+import { MainLayout } from "../layouts";
 import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([

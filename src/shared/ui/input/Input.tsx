@@ -8,7 +8,7 @@ type InputSectionType = {
   error?: boolean;
 };
 
-const Input = forwardRef<HTMLInputElement, InputSectionType>(
+export const Input = forwardRef<HTMLInputElement, InputSectionType>(
   ({ type = "text", error = false }, ref) => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -49,4 +49,3 @@ const Input = forwardRef<HTMLInputElement, InputSectionType>(
 
 Input.displayName = "Input";
 
-export default Input;

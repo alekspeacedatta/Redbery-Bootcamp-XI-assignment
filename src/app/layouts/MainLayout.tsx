@@ -1,8 +1,8 @@
+import { Footer } from "@/widgets/footer";
+import { Header } from "@/widgets/header";
 import { Outlet } from "react-router-dom";
-import Footer from "@/shared/layout/Footer";
-import Header from "@/shared/layout/Header";
 
-const MainLayout = () => {
+export const MainLayout = () => {
   return (
     <>
       <Header />
@@ -11,5 +11,3 @@ const MainLayout = () => {
     </>
   );
 };
-
-export default MainLayout;

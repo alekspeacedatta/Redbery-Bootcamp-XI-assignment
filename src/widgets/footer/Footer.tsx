@@ -1,4 +1,3 @@
-import MaxWidth from "@/shared/layout/MaxWidth";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,6 +13,7 @@ import {
   faRocket,
 } from "@fortawesome/free-solid-svg-icons";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { MaxWidth } from "@/shared/ui";
 
 type SocialItem = {
   icon: IconDefinition;
@@ -38,23 +38,24 @@ type ContactItem = {
 const socialIcons: SocialItem[] = [
   {
     icon: faFacebook,
-    link: "https://www.facebook.com/aleqsandre.qobulashvili.3/",
+    link: "https://facebook.com",
     label: "facebook",
   },
-  { icon: faXTwitter, link: "https://x.com/", label: "X" },
+  { icon: faXTwitter, link: "https://x.com", label: "X" },
   {
     icon: faInstagram,
-    link: "https://www.instagram.com/aleqsandreqobulashvili/",
+    link: "https://instagram.com",
     label: "instagram",
   },
   {
     icon: faLinkedin,
-    link: "https://www.linkedin.com/in/aleksandre-kobulashvili-56b6ba342/",
+    link: "https://linkedin.com",
     label: "Linkedin",
   },
-  { icon: faYoutube, link: "https://www.youtube.com/", label: "Youtube" },
+  { icon: faYoutube, link: "https://youtube.com", label: "Youtube" },
 ];
 
+// Navigation Sections
 const navigationSections: NavigationSection[] = [
   {
     topic: "Explore",
@@ -63,37 +64,45 @@ const navigationSections: NavigationSection[] = [
   { topic: "Account", items: [{ text: "My Profile" }] },
 ];
 
+//  Contact Items
 const contactItems: ContactItem[] = [
   { text: "contact@company.com", icon: faEnvelope },
   { text: "(+995) 555 111 222", icon: faPhone },
   { text: "Aghmashenebeli St. 115", icon: faLocationDot },
 ];
 
-const Footer = () => {
+export const Footer = () => {
   return (
-    <footer className=" border-t border-t-[#D1D1D1] bg-[#F5F5F5]">
+    /* Outer footer container with Tailwind v4 border-t syntax and light background */
+    <footer className="border-t border-t-[#D1D1D1] bg-[#F5F5F5]">
       <MaxWidth className="flex flex-col gap-18.5 pt-20 pb-5">
-        <div className="flex justify-between">
+        
+        {/* TOP SECTION: Holds Brand/Socials (Left) and Navigation/Contact (Right) */}
+        <div className="flex justify-between">    
+          {/* BRAND COLUMN */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
+                {/* Brand Logo Icon */}
                 <div className="flex h-11.25 w-11.25 items-center justify-center rounded-[14px] bg-[#4F46E5]">
                   <FontAwesomeIcon
                     icon={faRocket}
                     className="text-2xl text-white"
                   />
                 </div>
+                {/* Brand Name */}
                 <h2 className="text-2xl leading-none font-medium text-[#130E67]">
                   Bootcamp
                 </h2>
               </div>
+              {/* Tagline text */}
               <p className="text-sm leading-3.75 font-medium text-[#130E67]">
                 Your learning journey starts here!
                 <br />
                 Browse courses to get started.
               </p>
             </div>
-
+            {/* Render Social Media Icons dynamically */}
             <div className="flex items-center gap-5.5">
               {socialIcons.map((item) => (
                 <a
@@ -101,7 +110,8 @@ const Footer = () => {
                   href={item.link}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={item.link}
+                  aria-label={item.label}
+                  className="hover:scale-110 transition-transform"
                 >
                   <FontAwesomeIcon
                     icon={item.icon}
@@ -111,8 +121,9 @@ const Footer = () => {
               ))}
             </div>
           </div>
-
+          {/* LINK GROUPS: Navigation & Contact Information */}
           <div className="flex gap-30">
+            {/* Map over navigation sections (Explore, Account) */}
             {navigationSections.map((section) => (
               <div key={section.topic} className="flex flex-col gap-4">
                 <h4 className="text-xl leading-6 font-semibold text-[#130E67]">
@@ -122,7 +133,9 @@ const Footer = () => {
                   {section.items.map((item) => (
                     <li
                       key={item.text}
-                      className="flex gap-1.5 text-lg leading-none text-[#666666]"
+                      className="
+                        cursor-pointer text-lg leading-none text-[#666666]
+                       hover:text-[#4F46E5] transition-colors"
                     >
                       {item.text}
                     </li>
@@ -131,6 +144,7 @@ const Footer = () => {
               </div>
             ))}
 
+            {/* Static Contact Section */}
             <div className="flex flex-col gap-4">
               <h4 className="text-xl leading-6 font-semibold text-[#130E67]">
                 Contact
@@ -140,10 +154,12 @@ const Footer = () => {
                 {contactItems.map((item) => (
                   <li
                     key={item.text}
-                    className="flex gap-1.5 text-lg leading-none text-[#666666] cursor-pointer"
+                    className="flex cursor-pointer gap-1.5 text-lg leading-none text-[#666666] hover:text-[#4F46E5] transition-colors"
                   >
                     <FontAwesomeIcon icon={item.icon} />
-                    <span>{item.text}</span>
+                    <span>
+                      {item.text}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -151,20 +167,23 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
+        {/* BOTTOM SECTION: Copyright and Policies */}
+        <div className="flex items-center justify-between border-t border-[#E5E5E5] pt-5">
           <p className="text-lg leading-none text-[#666666]">
             Copyright © 2026 Redberry International
           </p>
 
           <p className="text-lg leading-none text-[#666666]">
             All Rights Reserved |{" "}
-            <span className="text-[#4F46E5]">Terms and Conditions</span> |{" "}
-            <span className="text-[#4F46E5]">Privacy Policy</span>
+            <span className="cursor-pointer text-[#4F46E5] hover:underline">
+              Terms and Conditions
+            </span> |{" "}
+            <span className="cursor-pointer text-[#4F46E5] hover:underline">
+              Privacy Policy
+            </span>
           </p>
         </div>
       </MaxWidth>
     </footer>
   );
 };
-
-export default Footer;

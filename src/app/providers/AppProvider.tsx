@@ -6,8 +6,6 @@ type Props = {
 };
 const client = new QueryClient();
 
-const AppProvider = ({ children }: Props) => {
+export const AppProvider = ({ children }: Props) => {
   return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
 };
-
-export default AppProvider;
