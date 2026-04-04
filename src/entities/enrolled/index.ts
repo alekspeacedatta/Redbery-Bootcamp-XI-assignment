@@ -1,0 +1,1 @@
+export type { EnrolledCourseType } from './model/types'

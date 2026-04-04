@@ -1,1 +1,1 @@
-export { FeaturedCourses } from './ui/FeaturedCourses'
+export { FeaturedCourseList } from './ui/FeaturedCourseList'

@@ -2,7 +2,7 @@ import { CourseCard } from "@/entities/course"
 import { useGetFeaturedCourses } from "../hooks/useGetFeaturedCourses"
 import { MaxWidth } from "@/shared/ui"
 
-export const FeaturedCourses = () => {
+export const FeaturedCourseList = () => {
     const { data, isLoading, isError, error } = useGetFeaturedCourses()
     return (
         <MaxWidth>
@@ -16,14 +16,17 @@ export const FeaturedCourses = () => {
                 </p>
             </div>
 
-            {isLoading && <p>Loading...</p>}
-            {isError && <p className="text-red-500">{error.message}</p>}
-
-            <div className="grid grid-cols-3 gap-6">
-                {data?.map(item => (
-                    <CourseCard key={item.id} variant="lg" course={item} />
-                ))}
-            </div>
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : isError ? (
+                <p className='text-red-500'>{error.message}</p>
+            ) : (
+                <div className='grid grid-cols-3 gap-6'>
+                    {data?.map((item) => (
+                        <CourseCard key={item.id} variant='lg' course={item} />
+                    ))}
+                </div>
+            )}
         </div>
     </MaxWidth>
   )
