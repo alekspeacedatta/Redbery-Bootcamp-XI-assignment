@@ -1,9 +1,10 @@
-import { CourseCard } from "@/entities/course"
+import { CourseCard, CourseCardLgSkeleton } from "@/entities/course"
 import { useGetFeaturedCourses } from "../hooks/useGetFeaturedCourses"
 import { MaxWidth } from "@/shared/ui"
 
 export const FeaturedCourseList = () => {
     const { data, isLoading, isError, error } = useGetFeaturedCourses()
+    
     return (
         <MaxWidth>
         <div className="flex flex-col gap-8 ">
@@ -17,7 +18,11 @@ export const FeaturedCourseList = () => {
             </div>
 
             {isLoading ? (
-                <p>Loading...</p>
+                <div className="grid grid-cols-3 gap-6">
+                    {[...Array(3)].map((_, i) => (
+                        <CourseCardLgSkeleton key={i} />
+                    ))}
+                </div>
             ) : isError ? (
                 <p className='text-red-500'>{error.message}</p>
             ) : (

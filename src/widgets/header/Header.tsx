@@ -4,13 +4,14 @@ import { faRocket, faBook } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "@/entities/session";
+import { useLogout } from "@/features/logout";
 
 
 export const Header = () => {
   // Extracting auth state and the setter from the store
   const isAuth = useAuthStore((state) => state.isAuth);
-  const setIsAuth = useAuthStore((state) => state.setIsAuth);
-
+  const setAuthMode = useAuthStore((state) => state.setAuthMode);
+  const { mutate } = useLogout()
   return (
     <header
       className="
@@ -22,13 +23,13 @@ export const Header = () => {
         
         {/* LOGO SECTION: Temporarily acts as an Auth Toggle for testing */}
         <div
+          onClick={() => mutate()}
           className="w-15 h-15 bg-[#4F46E5] rounded-[14px] flex justify-center items-center cursor-pointer transition-transform hover:scale-105 active:scale-95"
-          onClick={setIsAuth}
         >
           <FontAwesomeIcon icon={faRocket} className="text-white text-2xl" />
         </div>
 
-        {/* CONDITIONAL NAVIGATION: Based on Authentication State */}
+        {/* Nav, isAuth=true means logined, isAuth=false means not logined */}
         {isAuth ? (
           /* AUTHENTICATED STATE */
           <div className="flex items-center gap-9">
@@ -66,10 +67,15 @@ export const Header = () => {
             </Link>
             
             <div className="flex items-center gap-3.75">
-              <Button variant="outline" className="py-4.5 px-6.25 text-[#4F46E5] text-xl font-medium">
+              <Button 
+                onClick={() => { setAuthMode('login') }}
+                variant="outline"
+                className="py-4.5 px-6.25 text-[#4F46E5] text-xl font-medium">
                 Log in
               </Button>
-              <Button className="py-4.5 px-6.25 text-[#F5F5F5] text-xl font-medium">
+              <Button 
+                onClick={() => { setAuthMode('register') }}
+                className="py-4.5 px-6.25 text-[#F5F5F5] text-xl font-medium">
                 Sign Up
               </Button>
             </div>

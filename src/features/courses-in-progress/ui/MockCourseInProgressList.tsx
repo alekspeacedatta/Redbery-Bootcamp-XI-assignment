@@ -2,9 +2,12 @@ import { Button } from '@/shared/ui'
 import crsImg from '../assets/courseImage.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faStar } from '@fortawesome/free-solid-svg-icons'
+import { useAuthStore } from '@/entities/session'
 
 const MockCourseInProgressList = () => {
     const arr = [1,2,3]
+      const setAuthMode = useAuthStore((state) => state.setAuthMode);
+    
   return (
     <div className='relative'>
         {/* Blured background section */}
@@ -78,7 +81,10 @@ const MockCourseInProgressList = () => {
                         Sign in to track your learning progress
                     </h5>
                 </div>
-                <Button variant='primary' className='leading-6 font-medium py-2.25 px-4.5'>
+                <Button
+                    onClick={() => { setAuthMode('login') }} 
+                    variant='primary' 
+                    className='leading-6 font-medium py-2.25 px-4.5'>
                     Log In
                 </Button>
             </div>
