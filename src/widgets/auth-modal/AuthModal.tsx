@@ -50,7 +50,7 @@ export const AuthModal = () => {
         <div className="flex flex-col gap-4 p-11.25">
           {/* Header, Forms */}
           <div className="flex flex-col gap-6 items-center">
-            {/* login Header */}
+            {/* login, Register Header */}
             <div className='flex flex-col items-center gap-1.5'>
               <h3 className='text-[32px] font-semibold leading-none'>
                 { authMode === 'login' ? 'Welcome Back' : 'Create Account'}
