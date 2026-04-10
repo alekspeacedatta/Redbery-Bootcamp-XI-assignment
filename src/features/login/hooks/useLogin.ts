@@ -16,7 +16,7 @@ export const useLogin = () => {
         onSuccess: ( response ) => {
             setToken(response.data.token);
             setIsAuth(true);
-            setUser(response.data.user)
+            setUser(response.data.user);
             closeModal();
         },
         onError: () => {

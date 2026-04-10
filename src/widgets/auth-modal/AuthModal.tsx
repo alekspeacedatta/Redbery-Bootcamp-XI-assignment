@@ -1,8 +1,6 @@
 import { useAuthStore } from "@/entities/session";
-import { Button } from "@/shared/ui";
-import { faX } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { lazy, Suspense, useState } from "react";
+import { Button, ModalCard } from "@/shared/ui";
+import { lazy, Suspense } from "react";
 
 const LoginForm = lazy(() => import("@/features/login").then(module => ({ default: module.LoginForm })));
 const RegisterForm = lazy(() => import("@/features/register").then(module => ({ default: module.RegisterForm })));
@@ -14,7 +12,6 @@ export const AuthModal = () => {
   const setAuthMode = useAuthStore((state) => state.setAuthMode)
   const closeModal = useAuthStore((state) => state.closeModal)
 
-  const [ formKey, setFormKey ] = useState<boolean>(false);
 
   const switchAuthMode = () => {
     if(authMode === 'login') {
@@ -23,30 +20,11 @@ export const AuthModal = () => {
       setAuthMode('login')
     }
   }
-  const handleModalClose = () => {
-    setFormKey(p => !p);
-    closeModal()
-  }
-
+  
   if (!isModalOpen) return null;
 
   return (
-    // container for whole Modal (gray bg)
-    <div 
-      className={`
-        h-screen w-full flex justify-center
-        items-center z-11 fixed bg-[#00000040]
-      `}>
-        {/* Modal Card - Auth Modal */}
-      <div className="p-4 bg-[#FFFFFF] rounded-xl w-[25vw] relative">
-        {/* Modal Close */}
-        <Button 
-            onClick={handleModalClose}
-            variant='link'
-            className="absolute decoration-0 right-3.75">
-          <FontAwesomeIcon icon={faX}/>
-        </Button>  
-        {/* Modal Content */}
+    <ModalCard onClose={closeModal}>
         <div className="flex flex-col gap-4 p-11.25">
           {/* Header, Forms */}
           <div className="flex flex-col gap-6 items-center">
@@ -63,10 +41,10 @@ export const AuthModal = () => {
             <Suspense fallback={<div className="py-10 text-center text-gray-400">Loading form...</div>}>
               {authMode === 'login' ? (
                 //Login Form
-                <LoginForm key={`login-${formKey}`}/>
+                <LoginForm />
               ) : (
                 //Reg Form 
-                <RegisterForm key={`register-${formKey}`}/>
+                <RegisterForm />
               )}
             </Suspense>
           </div>
@@ -80,7 +58,7 @@ export const AuthModal = () => {
             <div className="flex justify-center gap-2 items-center">
               <p className="text-xs text-[#666666] leading-none">
                 {authMode === 'login' ? 
-                  'Don’t have an account?'   : 'Already have an account?'
+                  'Do&apos;t have an account?'   : 'Already have an account?'
                 } 
               </p>
               <Button onClick={switchAuthMode} variant="link" className="text-sm ">
@@ -89,7 +67,6 @@ export const AuthModal = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </ModalCard>
   )
 }

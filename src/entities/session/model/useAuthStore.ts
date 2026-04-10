@@ -6,6 +6,7 @@ type authStoreType = {
   isAuth: boolean;
   isModalOpen: boolean,
   closeModal: () => void;
+  openModal: () => void;
   toggleIsAuth: () => void;
   setIsAuth: ( isAuth: boolean ) => void,
   setAuthMode: ( mode : 'login' | 'register'  ) => void;
@@ -21,14 +22,17 @@ export const useAuthStore = create<authStoreType>((set) => ({
   toggleIsAuth: () => {
     set((state) => ({ isAuth: !state.isAuth }));
   },
+  openModal: () => {
+    set({ isModalOpen: true })
+  },
   closeModal: () => {
     set({ isModalOpen: false })
   },
   setAuthMode: (mode) => {
     if(mode === 'login') {
-      set({ authMode: mode, isModalOpen: true })
+      set({ authMode: mode })
     } else {
-      set({ authMode: mode, isModalOpen: true })
+      set({ authMode: mode })
     }
   },
 }));

@@ -6,7 +6,13 @@ import { useAuthStore } from '@/entities/session'
 
 const MockCourseInProgressList = () => {
     const arr = [1,2,3]
-      const setAuthMode = useAuthStore((state) => state.setAuthMode);
+    const setAuthMode = useAuthStore((state) => state.setAuthMode);
+    const openModal = useAuthStore((state) => state.openModal);
+
+    const handleLoginClick = () => {
+        setAuthMode('login');
+         openModal();
+    }
     
   return (
     <div className='relative'>
@@ -82,7 +88,7 @@ const MockCourseInProgressList = () => {
                     </h5>
                 </div>
                 <Button
-                    onClick={() => { setAuthMode('login') }} 
+                    onClick={handleLoginClick} 
                     variant='primary' 
                     className='leading-6 font-medium py-2.25 px-4.5'>
                     Log In

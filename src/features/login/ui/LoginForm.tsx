@@ -1,7 +1,7 @@
 import { useLogin } from '../hooks/useLogin'
 import { loginSchema, type LoginSchema } from '../model/login.schema'
 import { Button, Input } from '@/shared/ui'
-import { useForm } from 'react-hook-form'
+import { useForm, type SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import type { AxiosError } from 'axios'
 
@@ -16,7 +16,7 @@ export const LoginForm = () => {
             password: '',
         }
     })
-    const onSubmit = (data: LoginSchema) => {
+    const onSubmit : SubmitHandler<LoginSchema> = (data) => {
         mutate(data, {
             onError: ( error: AxiosError<{ message: string }> ) => {
                 const apiMessage = error.response?.data?.message || 'Something went wrong'
