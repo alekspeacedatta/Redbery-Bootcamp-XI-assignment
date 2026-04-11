@@ -1,7 +1,7 @@
 import { useAuthStore, useUserStore } from '@/entities/session';
 import { useGetEnrolledCourses } from '../hooks/useGetEnrolledCourses';
 import { Button, EmptyBoxIcon } from '@/shared/ui';
-import EnrolledCourseCard from './EnrolledCourseCard';
+import { EnrolledCourseCard } from './EnrolledCourseCard';
 
 export const EnrolledSidebar = ( ) => {
 

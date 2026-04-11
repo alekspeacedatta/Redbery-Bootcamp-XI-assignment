@@ -1,5 +1,5 @@
 import { AuthModal } from "@/widgets/auth-modal";
-import { EnrolledSidebar } from "@/widgets/enrolled-courses";
+import { EnrolledSidebar } from "@/widgets/enrolled-courses-sidebar";
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { ProfileModal } from "@/widgets/profile-modal";

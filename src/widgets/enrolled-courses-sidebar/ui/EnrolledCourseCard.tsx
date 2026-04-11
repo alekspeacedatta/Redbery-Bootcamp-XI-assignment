@@ -8,7 +8,7 @@ type EnrolledCourseCardType = {
   enrolledCourse: EnrolledCourseType;
 };
 
-export default function EnrolledCourseCard({enrolledCourse} : EnrolledCourseCardType) {
+export const EnrolledCourseCard = ({enrolledCourse} : EnrolledCourseCardType) => {
     const scheduleInfo = [
         { icon: faCalendarAlt, value: enrolledCourse.schedule.weeklySchedule.label },
         { icon: faClock,       value: enrolledCourse.schedule.timeSlot.label },
