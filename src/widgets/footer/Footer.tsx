@@ -76,9 +76,8 @@ export const Footer = () => {
     /* Outer footer container with Tailwind v4 border-t syntax and light background */
     <footer className="border-t border-t-[#D1D1D1] bg-[#F5F5F5]">
       <MaxWidth className="flex flex-col gap-18.5 pt-20 pb-5">
-        
         {/* TOP SECTION: Holds Brand/Socials (Left) and Navigation/Contact (Right) */}
-        <div className="flex justify-between">    
+        <div className="flex justify-between">
           {/* BRAND COLUMN */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
@@ -157,9 +156,7 @@ export const Footer = () => {
                     className="flex cursor-pointer gap-1.5 text-lg leading-none text-[#666666] hover:text-[#4F46E5] transition-colors"
                   >
                     <FontAwesomeIcon icon={item.icon} />
-                    <span>
-                      {item.text}
-                    </span>
+                    <span>{item.text}</span>
                   </li>
                 ))}
               </ul>
@@ -177,7 +174,8 @@ export const Footer = () => {
             All Rights Reserved |{" "}
             <span className="cursor-pointer text-[#4F46E5] hover:underline">
               Terms and Conditions
-            </span> |{" "}
+            </span>{" "}
+            |{" "}
             <span className="cursor-pointer text-[#4F46E5] hover:underline">
               Privacy Policy
             </span>

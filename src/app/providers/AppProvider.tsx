@@ -15,11 +15,9 @@ const client = new QueryClient({
   },
 });
 export const AppProvider = ({ children }: Props) => {
-  return ( 
+  return (
     <QueryClientProvider client={client}>
-      <AuthProvider>
-        {children}
-      </AuthProvider>
+      <AuthProvider>{children}</AuthProvider>
     </QueryClientProvider>
-  )
+  );
 };

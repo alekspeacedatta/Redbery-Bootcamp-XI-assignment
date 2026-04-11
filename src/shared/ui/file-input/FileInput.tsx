@@ -26,7 +26,7 @@ export const FileInput = ({ children, error }: FileInputProps) => {
         h-35 rounded-lg cursor-pointer
         flex items-center justify-center
         transition-colors duration-300
-        ${ file &&  'bg-[#EEEDFC] border-[#DDDBFA] border-1.25'}
+        ${file && "bg-[#EEEDFC] border-[#DDDBFA] border-1.25"}
         ${error ? "border border-red-500" : "border border-[#D1D1D1]"}
         hover:bg-[#DDDBFA] hover:border-[#DDDBFA]
       `}
@@ -34,18 +34,17 @@ export const FileInput = ({ children, error }: FileInputProps) => {
       {!file ? (
         // EMPTY STATE
         <div className="flex flex-col items-center gap-2 ">
-          <FontAwesomeIcon icon={faSadCry} className="text-[#ADADAD] text-3xl" />
+          <FontAwesomeIcon
+            icon={faSadCry}
+            className="text-[#ADADAD] text-3xl"
+          />
 
           <div className="flex flex-col gap-1.5 items-center">
             <p className="text-sm text-[#666666] font-medium">
               Drag and drop or{" "}
-              <span className="text-[#281ED2] underline">
-                Upload file
-              </span>
+              <span className="text-[#281ED2] underline">Upload file</span>
             </p>
-            <p className="text-xs text-[#ADADAD]">
-              JPG, PNG or WebP
-            </p>
+            <p className="text-xs text-[#ADADAD]">JPG, PNG or WebP</p>
           </div>
         </div>
       ) : (
@@ -61,16 +60,14 @@ export const FileInput = ({ children, error }: FileInputProps) => {
           {/* Text column */}
           <div className="flex flex-col items-start min-w-0 flex-1">
             <p className="text-xs text-[#525252] leading-none line-clamp-1 break-all mb-0.5">
-            {file.name}
+              {file.name}
             </p>
 
             <p className="text-[10px] text-[#ADADAD] leading-none">
-            Size - {formatSize(file.size)}
+              Size - {formatSize(file.size)}
             </p>
 
-            <span
-              className="text-[10px] text-[#4F46E5] mt-0.5 underline font-medium cursor-pointer"
-            >
+            <span className="text-[10px] text-[#4F46E5] mt-0.5 underline font-medium cursor-pointer">
               Change
             </span>
           </div>

@@ -7,10 +7,7 @@ import { useRegister } from "../hooks/useRegister";
 import { RegisterEmailStep } from "./steps/RegisterEmailStep";
 import { RegisterPasswordStep } from "./steps/RegisterPasswordStep";
 import { RegisterUsernameStep } from "./steps/RegisterUsernameStep";
-import {
-  registerSchema,
-  type RegisterSchema,
-} from "../model/register.schema";
+import { registerSchema, type RegisterSchema } from "../model/register.schema";
 import {
   RegistrationStep,
   stepFields,
@@ -27,7 +24,7 @@ export const RegisterForm = () => {
   const { mutate } = useRegister();
 
   const [currentStep, setCurrentStep] = useState<RegistrationStepType>(
-    RegistrationStep.EMAIL
+    RegistrationStep.EMAIL,
   );
 
   const currentIndex = STEPS.indexOf(currentStep);
@@ -63,7 +60,7 @@ export const RegisterForm = () => {
   const watchedUsername = useWatch({ control, name: "username" });
 
   const getStepByField = (
-    field: keyof RegisterSchema
+    field: keyof RegisterSchema,
   ): RegistrationStepType | null => {
     if (field === "email") return RegistrationStep.EMAIL;
 
@@ -127,7 +124,9 @@ export const RegisterForm = () => {
         const fieldErrors = responseData?.errors;
 
         if (fieldErrors && Object.keys(fieldErrors).length > 0) {
-          const firstField = Object.keys(fieldErrors)[0] as keyof RegisterSchema;
+          const firstField = Object.keys(
+            fieldErrors,
+          )[0] as keyof RegisterSchema;
 
           Object.entries(fieldErrors).forEach(([field, messages]) => {
             const typedField = field as keyof RegisterSchema;
@@ -162,8 +161,8 @@ export const RegisterForm = () => {
                 index < currentIndex
                   ? "bg-[#4F46E5]"
                   : index === currentIndex
-                  ? "bg-[#B7B3F4]"
-                  : "bg-[#EEEDFC]"
+                    ? "bg-[#B7B3F4]"
+                    : "bg-[#EEEDFC]"
               }
             `}
           />

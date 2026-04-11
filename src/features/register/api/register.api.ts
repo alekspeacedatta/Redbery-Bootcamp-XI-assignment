@@ -7,16 +7,13 @@ export type RegisterResponse = {
 };
 
 export const register = async (
-  registerData: RegisterSchema
+  registerData: RegisterSchema,
 ): Promise<RegisterResponse> => {
   const formData = new FormData();
 
   formData.append("email", registerData.email);
   formData.append("password", registerData.password);
-  formData.append(
-    "password_confirmation",
-    registerData.password_confirmation
-  );
+  formData.append("password_confirmation", registerData.password_confirmation);
   formData.append("username", registerData.username);
 
   if (registerData.avatar instanceof File) {
@@ -30,7 +27,7 @@ export const register = async (
       headers: {
         "Content-Type": "multipart/form-data",
       },
-    }
+    },
   );
 
   return data;

@@ -1,1 +1,1 @@
-export type { EnrolledCourseType } from './model/types'
+export type { EnrolledCourseType } from "./model/types";

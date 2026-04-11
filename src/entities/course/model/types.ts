@@ -11,4 +11,4 @@ export type Course = {
   category: { id: number; name: string; icon: string };
   topic: { id: number; name: string; categoryId: number };
   instructor: { id: number; name: string; avatar: string };
-}
+};

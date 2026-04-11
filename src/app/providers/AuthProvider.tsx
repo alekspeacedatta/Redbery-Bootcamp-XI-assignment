@@ -7,11 +7,11 @@ type AuthProviderProps = {
 };
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-    const user = useUserStore((state) => state.user);
-    const { isLoading, isError } = useMe();
+  const user = useUserStore((state) => state.user);
+  const { isLoading, isError } = useMe();
 
-    if (isLoading && !user) return <PageLoader/>;
-    if (isError && !user) return null
+  if (isLoading && !user) return <PageLoader />;
+  if (isError && !user) return null;
 
-    return children;
-}
+  return children;
+};

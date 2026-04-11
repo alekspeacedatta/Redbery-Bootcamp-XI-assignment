@@ -1,11 +1,10 @@
-import { getToken } from './auth-token';
-import { ENV } from '@/shared/config';
-import axios from 'axios';
-
+import { getToken } from "./auth-token";
+import { ENV } from "@/shared/config";
+import axios from "axios";
 
 export const apiInstance = axios.create({
   baseURL: ENV.BASE_URL,
-  timeout: 10000, 
+  timeout: 10000,
 });
 apiInstance.interceptors.request.use(
   (config) => {
@@ -15,11 +14,11 @@ apiInstance.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 apiInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );

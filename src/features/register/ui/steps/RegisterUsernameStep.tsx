@@ -1,4 +1,9 @@
-import { Controller, type Control, type FieldErrors, type UseFormRegister } from "react-hook-form";
+import {
+  Controller,
+  type Control,
+  type FieldErrors,
+  type UseFormRegister,
+} from "react-hook-form";
 import { FileInput, Input } from "@/shared/ui";
 import type { RegisterSchema } from "../../model/register.schema";
 
@@ -69,9 +74,7 @@ export const RegisterUsernameStep = ({
         />
 
         {errors.avatar && (
-          <p className="text-red-500">
-            {errors.avatar.message?.toString()}
-          </p>
+          <p className="text-red-500">{errors.avatar.message?.toString()}</p>
         )}
       </div>
     </div>

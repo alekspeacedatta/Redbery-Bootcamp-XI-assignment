@@ -5,10 +5,6 @@ type MaxWidthType = {
   className?: string;
 };
 
-export const MaxWidth = ( { children, className = "" }: MaxWidthType) => {
-  return (
-    <div className={`max-w-391.5 mx-auto ${className}`}>
-      {children}
-    </div>
-  );
+export const MaxWidth = ({ children, className = "" }: MaxWidthType) => {
+  return <div className={`max-w-391.5 mx-auto ${className}`}>{children}</div>;
 };

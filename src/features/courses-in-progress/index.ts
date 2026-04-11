@@ -1,1 +1,1 @@
-export { CoursesInProgress } from './ui/CoursesInProgress'
+export { CoursesInProgress } from "./ui/CoursesInProgress";

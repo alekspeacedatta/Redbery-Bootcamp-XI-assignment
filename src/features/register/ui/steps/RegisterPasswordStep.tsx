@@ -55,9 +55,7 @@ export const RegisterPasswordStep = ({
         />
 
         {errors.password_confirmation && (
-          <p className="text-red-500">
-            {errors.password_confirmation.message}
-          </p>
+          <p className="text-red-500">{errors.password_confirmation.message}</p>
         )}
       </div>
     </div>

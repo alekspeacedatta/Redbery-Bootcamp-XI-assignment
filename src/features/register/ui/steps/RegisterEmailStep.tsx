@@ -2,7 +2,6 @@ import { Input } from "@/shared/ui";
 import type { FieldErrors, UseFormRegister } from "react-hook-form";
 import type { RegisterSchema } from "../../model/register.schema";
 
-
 type RegisterEmailStepProps = {
   register: UseFormRegister<RegisterSchema>;
   errors: FieldErrors<RegisterSchema>;
@@ -30,9 +29,7 @@ export const RegisterEmailStep = ({
         className="py-3.25"
       />
 
-      {errors.email && (
-        <p className="text-red-500">{errors.email.message}</p>
-      )}
+      {errors.email && <p className="text-red-500">{errors.email.message}</p>}
     </div>
   );
 };

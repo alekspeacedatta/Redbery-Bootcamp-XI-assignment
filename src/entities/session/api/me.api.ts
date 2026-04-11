@@ -1,10 +1,8 @@
-import type { MeResponse, User } from "@/entities/session"
-import { apiInstance } from "@/shared/api"
+import type { MeResponse, User } from "../model/user.model";
+import { apiInstance } from "@/shared/api";
 
+export const getMe = async (): Promise<User> => {
+  const { data } = await apiInstance.get<MeResponse>("/me");
 
-
-export const getMe = async () : Promise<User> => {
-    const { data } = await apiInstance.get<MeResponse>('/me')
-
-    return data.data
-}
+  return data.data;
+};

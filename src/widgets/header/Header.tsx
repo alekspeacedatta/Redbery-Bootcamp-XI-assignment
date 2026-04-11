@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { ProfileIcon, useAuthStore, useUserStore } from "@/entities/session";
 import { useLogout } from "@/features/logout";
 
-
 export const Header = () => {
   // Extracting auth state and the setter from the store
   const isAuth = useAuthStore((state) => state.isAuth);
@@ -14,7 +13,7 @@ export const Header = () => {
   const openModal = useAuthStore((state) => state.openModal);
   const setIsProfileOpen = useUserStore((state) => state.setIsProfileOpen);
 
-  const { mutate } = useLogout()
+  const { mutate } = useLogout();
 
   return (
     <header
@@ -24,7 +23,6 @@ export const Header = () => {
       "
     >
       <MaxWidth className="flex justify-between items-center">
-        
         {/* LOGO SECTION: Temporarily acts as an Auth Toggle for testing */}
         <div
           onClick={() => mutate()}
@@ -50,12 +48,15 @@ export const Header = () => {
                 Enrolled Courses
               </button>
             </nav>
-            
+
             {/* User Profile Avatar / Icon */}
-            <ProfileIcon method={setIsProfileOpen} className="
+            <ProfileIcon
+              method={setIsProfileOpen}
+              className="
               transition-transform duration-200 hover:scale-110 
               cursor-pointer
-            " />
+            "
+            />
           </div>
         ) : (
           /* GUEST STATE (unAuthenticated) */
@@ -67,17 +68,25 @@ export const Header = () => {
               <FontAwesomeIcon icon={faStar} />
               browse courses
             </Link>
-            
+
             <div className="flex items-center gap-3.75">
-              <Button 
-                onClick={() => { setAuthMode('login'); openModal() }}
+              <Button
+                onClick={() => {
+                  setAuthMode("login");
+                  openModal();
+                }}
                 variant="outline"
-                className="py-4.5 px-6.25 text-[#4F46E5] text-xl font-medium">
+                className="py-4.5 px-6.25 text-[#4F46E5] text-xl font-medium"
+              >
                 Log in
               </Button>
-              <Button 
-                onClick={() => { setAuthMode('register'); openModal() }}
-                className="py-4.5 px-6.25 text-[#F5F5F5] text-xl font-medium">
+              <Button
+                onClick={() => {
+                  setAuthMode("register");
+                  openModal();
+                }}
+                className="py-4.5 px-6.25 text-[#F5F5F5] text-xl font-medium"
+              >
                 Sign Up
               </Button>
             </div>

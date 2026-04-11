@@ -6,21 +6,24 @@ import type { AxiosError } from "axios";
 import type { LoginSchema } from "../model/login.schema";
 
 export const useLogin = () => {
+  const setUser = useUserStore((state) => state.setUser);
+  const setIsAuth = useAuthStore((state) => state.setIsAuth);
+  const closeModal = useAuthStore((state) => state.closeModal);
 
-    const setUser = useUserStore((state) => state.setUser);
-    const setIsAuth = useAuthStore((state) => state.setIsAuth);
-    const closeModal = useAuthStore((state) => state.closeModal);
-
-    return useMutation<LoginResponse, AxiosError<{ message: string }>, LoginSchema>({
-        mutationFn: login,
-        onSuccess: ( response ) => {
-            setToken(response.data.token);
-            setIsAuth(true);
-            setUser(response.data.user);
-            closeModal();
-        },
-        onError: () => {
-            console.log('error');
-        }
-    })
-}
+  return useMutation<
+    LoginResponse,
+    AxiosError<{ message: string }>,
+    LoginSchema
+  >({
+    mutationFn: login,
+    onSuccess: (response) => {
+      setToken(response.data.token);
+      setIsAuth(true);
+      setUser(response.data.user);
+      closeModal();
+    },
+    onError: () => {
+      console.log("error");
+    },
+  });
+};
