@@ -5,4 +5,5 @@ export const SESSION_KEYS = {
 
 export const COURSE_KEYS = {
   FEATURED: ["featured-courses"],
+  ENROLLED: ['enrolled']
 } as const;

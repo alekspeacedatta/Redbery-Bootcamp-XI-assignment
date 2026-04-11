@@ -1,6 +1,6 @@
 import { useAuthStore } from "@/entities/session";
-import { CoursesInProgress } from "@/features/courses-in-progress";
-import { FeaturedCourseList } from "@/features/featured-courses";
+import { CoursesInProgress } from "@/widgets/courses-in-progress";
+import { FeaturedCourseList } from "@/widgets/featured-courses";
 import { HeroSection } from "@/widgets/hero";
 
 export const HomePage = () => {

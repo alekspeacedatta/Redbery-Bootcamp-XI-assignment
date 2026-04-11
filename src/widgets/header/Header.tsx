@@ -8,6 +8,7 @@ import { useLogout } from "@/features/logout";
 
 export const Header = () => {
   // Extracting auth state and the setter from the store
+  const setEnrolledSidebar = useUserStore((state) => state.setEnrolledSidebar);
   const isAuth = useAuthStore((state) => state.isAuth);
   const setAuthMode = useAuthStore((state) => state.setAuthMode);
   const openModal = useAuthStore((state) => state.openModal);
@@ -43,10 +44,17 @@ export const Header = () => {
                 <FontAwesomeIcon icon={faStar} />
                 Browse Courses
               </Link>
-              <button className="hover:text-[#4F46E5] flex items-center gap-2 cursor-pointer p-3.75 text-[#525252] font-medium text-xl leading-none transition-colors">
+              <Button 
+                 variant="link"
+                 className="
+                  hover:text-[#4F46E5] flex items-center gap-2
+                  p-3.75 text-[#525252]  text-xl
+                  "
+                  onClick={setEnrolledSidebar}
+                >
                 <FontAwesomeIcon icon={faBook} />
-                Enrolled Courses
-              </button>
+                  Enrolled Courses
+              </Button>
             </nav>
 
             {/* User Profile Avatar / Icon */}

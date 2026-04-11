@@ -6,15 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 type CourseInProgressCardType = {
   enrolledCourse: EnrolledCourseType;
 };
-export const CourseInProgressCard = ({
-  enrolledCourse,
-}: CourseInProgressCardType) => {
+export const CourseInProgressCard = ({ enrolledCourse, }: CourseInProgressCardType) => {
   return (
     <div
-      key={enrolledCourse.id}
       className="
         flex flex-col  gap-2 bg-[#FFFFFF] rounded-xl border-0.5
-        border-[#B7B3F4] p-5 
+        border-[#B7B3F4] p-5 col-span-1 
     "
     >
       {/* Course Image, lecturer, rate, name */}
@@ -50,13 +47,14 @@ export const CourseInProgressCard = ({
       </div>
       {/* Course view button and progress bar */}
       <div className="flex gap-10 justify-between items-center">
-        <div className="flex flex-col gap-1 w-full">
+        <div className="flex flex-col gap-1.5 w-full">
           <p className="text-xs text-[#141414] font-medium leading-none">
             {enrolledCourse.progress}% Complete
           </p>
           <div className="w-full h-3.75 bg-[#DDDBFA] rounded-[30px]">
             <div
-              className={`w-[${String(enrolledCourse.progress)}%] bg-[#4F46E5] rounded-[30px] h-3.75`}
+              className={` bg-[#4F46E5] rounded-[30px] h-3.75`}
+              style={{ width: `${enrolledCourse.progress}%` }}
             ></div>
           </div>
         </div>

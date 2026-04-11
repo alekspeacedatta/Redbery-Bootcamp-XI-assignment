@@ -4,3 +4,4 @@ export { MaxWidth } from "./layout/MaxWidth";
 export { PageLoader } from "./page-loader/PageLoader";
 export { FileInput } from "./file-input/FileInput";
 export { ModalCard } from "./modal-card/ModalCard";
+export { default as EmptyBoxIcon } from './icons/PackageOpen.svg';

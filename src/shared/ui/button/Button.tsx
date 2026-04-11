@@ -12,7 +12,7 @@ const variantClasses: Record<Variant, string> = {
   primary: "text-white bg-[#4F46E5] rounded-lg transition-colors duration-300",
   outline:
     "text-[#4F46E5] border border-[#958FEF] hover:bg-[#1E169D] hover:text-white rounded-lg transition-colors duration-300",
-  link: "border-b border-[#4F46E5] text-[#4F46E5] transition-opacity hover:opacity-80",
+  link: "text-[#4F46E5] transition-opacity hover:opacity-80",
 };
 
 export const Button = ({
