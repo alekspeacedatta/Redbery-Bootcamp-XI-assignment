@@ -1,4 +1,4 @@
-import { apiInstance } from "@/shared/api";
+import { apiInstance, PROFILE } from "@/shared/api";
 import type { ProfileSchema } from "../model/profile-model";
 import type { User } from "@/entities/session";
 
@@ -14,7 +14,7 @@ export const updateProfile = async (
     formData.append("avatar", profileData.avatar);
   }
 
-  const { data } = await apiInstance.put("/profile", formData, {
+  const { data } = await apiInstance.put(PROFILE.PROFILE, formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },

@@ -1,6 +1,6 @@
 import type { AuthResponse } from "@/entities/session";
 import type { RegisterSchema } from "../model/register.schema";
-import { apiInstance } from "@/shared/api";
+import { apiInstance, AUTH } from "@/shared/api";
 
 export type RegisterResponse = {
   data: AuthResponse;
@@ -21,7 +21,7 @@ export const register = async (
   }
 
   const { data } = await apiInstance.post<RegisterResponse>(
-    "/register",
+    AUTH.REGISTER,
     formData,
     {
       headers: {

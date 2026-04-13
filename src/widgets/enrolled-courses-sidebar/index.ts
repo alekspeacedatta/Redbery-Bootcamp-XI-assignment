@@ -1,1 +1,1 @@
-export { EnrolledSidebar } from './ui/EnrolledSidebar'
+export { EnrolledSidebar } from "./ui/EnrolledSidebar";

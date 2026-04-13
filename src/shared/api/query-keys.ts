@@ -5,5 +5,11 @@ export const SESSION_KEYS = {
 
 export const COURSE_KEYS = {
   FEATURED: ["featured-courses"],
-  ENROLLED: ['enrolled']
+  ENROLLED: ["enrolled"],
+} as const;
+
+export const FILTERS_KEYS = {
+  CATEGORIES: ["categories"],
+  TOPICS: ["topics"],
+  INSTRUCTORS: ["instructors"],
 } as const;

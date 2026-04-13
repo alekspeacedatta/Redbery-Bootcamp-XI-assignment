@@ -1,20 +1,33 @@
-import type { EnrolledCourseType } from '@/entities/enrolled';
-import { Button } from '@/shared/ui';
-import { faCalendarAlt, faClock, faDotCircle } from '@fortawesome/free-regular-svg-icons';
-import { faPeopleGroup, faStar, } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { EnrolledCourseType } from "@/entities/enrolled";
+import { Button } from "@/shared/ui";
+import {
+  faCalendarAlt,
+  faClock,
+  faDotCircle,
+} from "@fortawesome/free-regular-svg-icons";
+import { faPeopleGroup, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type EnrolledCourseCardType = {
   enrolledCourse: EnrolledCourseType;
 };
 
-export const EnrolledCourseCard = ({enrolledCourse} : EnrolledCourseCardType) => {
-    const scheduleInfo = [
-        { icon: faCalendarAlt, value: enrolledCourse.schedule.weeklySchedule.label },
-        { icon: faClock,       value: enrolledCourse.schedule.timeSlot.label },
-        { icon: faPeopleGroup, value: enrolledCourse.schedule.sessionType.name },
-        { icon: faDotCircle,   value: enrolledCourse.schedule.location || 'No location (Online sessions)' },
-    ];
+export const EnrolledCourseCard = ({
+  enrolledCourse,
+}: EnrolledCourseCardType) => {
+  const scheduleInfo = [
+    {
+      icon: faCalendarAlt,
+      value: enrolledCourse.schedule.weeklySchedule.label,
+    },
+    { icon: faClock, value: enrolledCourse.schedule.timeSlot.label },
+    { icon: faPeopleGroup, value: enrolledCourse.schedule.sessionType.name },
+    {
+      icon: faDotCircle,
+      value:
+        enrolledCourse.schedule.location || "No location (Online sessions)",
+    },
+  ];
   return (
     <div
       className="
@@ -48,19 +61,22 @@ export const EnrolledCourseCard = ({enrolledCourse} : EnrolledCourseCardType) =>
               </p>
             </div>
           </div>
-          <div className='flex flex-col gap-2'>
+          <div className="flex flex-col gap-2">
             {/* Course Title */}
             <h4 className="text-xl text-[#141414] font-semibold leading-6">
-                {enrolledCourse.course.title}
+              {enrolledCourse.course.title}
             </h4>
             {/* Properties Mapping (session type, location, week, schedule) */}
-            <div className='flex flex-col'>
-                {scheduleInfo.map(item => (
-                    <p className='text-sm text-[#666666] leading-6.5'>
-                        <FontAwesomeIcon icon={item.icon} className='text-[#525252] mr-1'/>
-                        {item.value}
-                    </p>
-                ))}
+            <div className="flex flex-col">
+              {scheduleInfo.map((item) => (
+                <p className="text-sm text-[#666666] leading-6.5">
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    className="text-[#525252] mr-1"
+                  />
+                  {item.value}
+                </p>
+              ))}
             </div>
           </div>
         </div>
@@ -80,10 +96,13 @@ export const EnrolledCourseCard = ({enrolledCourse} : EnrolledCourseCardType) =>
             ></div>
           </div>
         </div>
-        <Button variant="outline" className="py-2.75 px-10 font-medium leading-6 ">
+        <Button
+          variant="outline"
+          className="py-2.75 px-10 font-medium leading-6 "
+        >
           View
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};

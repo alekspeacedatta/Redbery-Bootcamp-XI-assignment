@@ -44,16 +44,16 @@ export const Header = () => {
                 <FontAwesomeIcon icon={faStar} />
                 Browse Courses
               </Link>
-              <Button 
-                 variant="link"
-                 className="
+              <Button
+                variant="link"
+                className="
                   hover:text-[#4F46E5] flex items-center gap-2
                   p-3.75 text-[#525252]  text-xl
                   "
-                  onClick={setEnrolledSidebar}
-                >
+                onClick={setEnrolledSidebar}
+              >
                 <FontAwesomeIcon icon={faBook} />
-                  Enrolled Courses
+                Enrolled Courses
               </Button>
             </nav>
 

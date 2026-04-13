@@ -1,6 +1,13 @@
 import type { Course } from "../../model/types";
 import { Button } from "@/shared/ui";
-import { faCode, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBriefcase,
+  faBullhorn,
+  faChain,
+  faCode,
+  faPaintBrush,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type CourseCardSmType = {
@@ -53,7 +60,20 @@ const CourseCardSm = ({ course }: CourseCardSmType) => {
                      font-medium leading-6 rounded-xl flex items-center gap-1.5
                   "
           >
-            <FontAwesomeIcon icon={faCode} className="mt-0.5" />
+            <FontAwesomeIcon
+              icon={
+                course.category.icon === "development"
+                  ? faCode
+                  : course.category.icon === "design"
+                    ? faPaintBrush
+                    : course.category.icon === "buisness"
+                      ? faBriefcase
+                      : course.category.icon === "marketing"
+                        ? faBullhorn
+                        : faChain
+              }
+              className="mt-05"
+            />
             {course.category.name}
           </div>
         </div>

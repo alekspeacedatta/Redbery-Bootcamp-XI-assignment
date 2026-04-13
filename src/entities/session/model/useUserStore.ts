@@ -5,7 +5,7 @@ interface UserStoreType {
   user: User | null;
   isProfileOpen: boolean;
   enrolledSidebar: boolean;
-  setEnrolledSidebar: () => void,
+  setEnrolledSidebar: () => void;
   setIsProfileOpen: (value: boolean) => void;
   setUser: (userData: User) => void;
   cleanUser: () => void;
@@ -15,7 +15,7 @@ export const useUserStore = create<UserStoreType>((set) => ({
   isProfileOpen: false,
   enrolledSidebar: false,
   setEnrolledSidebar: () => {
-    set((state) => ({ enrolledSidebar: !state.enrolledSidebar }))
+    set((state) => ({ enrolledSidebar: !state.enrolledSidebar }));
   },
   setIsProfileOpen: (value) => {
     set({ isProfileOpen: value });

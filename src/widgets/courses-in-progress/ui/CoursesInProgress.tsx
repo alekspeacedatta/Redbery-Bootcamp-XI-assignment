@@ -7,7 +7,9 @@ import { CourseInProgressCard } from "./CourseInProgressCard";
 export const CoursesInProgress = () => {
   const isAuth = useAuthStore((state) => state.isAuth);
   const { data, isLoading, isError } = useGetCoursesInProgress(isAuth);
-  const toggleEnrolledCourses = useUserStore((state) => state.setEnrolledSidebar)
+  const toggleEnrolledCourses = useUserStore(
+    (state) => state.setEnrolledSidebar,
+  );
   const shouldHideSection =
     isAuth && (isLoading || isError || !data || data.length === 0);
 

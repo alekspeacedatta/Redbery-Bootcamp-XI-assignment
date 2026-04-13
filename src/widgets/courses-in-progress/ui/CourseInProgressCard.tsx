@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 type CourseInProgressCardType = {
   enrolledCourse: EnrolledCourseType;
 };
-export const CourseInProgressCard = ({ enrolledCourse, }: CourseInProgressCardType) => {
+export const CourseInProgressCard = ({
+  enrolledCourse,
+}: CourseInProgressCardType) => {
   return (
     <div
       className="
