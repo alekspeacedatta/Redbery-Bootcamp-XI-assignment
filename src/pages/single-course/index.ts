@@ -1,0 +1,1 @@
+export { SingleCoursePage } from './ui/SingleCoursePage'

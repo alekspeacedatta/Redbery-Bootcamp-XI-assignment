@@ -2,17 +2,19 @@ import type { Course } from "../../model/types";
 import { Button } from "@/shared/ui";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 type CourseCardLgType = {
   course: Course;
 };
 
-const CourseCardLg = ({ course }: CourseCardLgType) => {
+export const CourseCardLg = ({ course }: CourseCardLgType) => {
   return (
     <div
       className="
+      hover:-translate-y-1.5 cursor-default
       bg-[#FFFFFF] rounded-xl p-5 border border-[#F5F5F5] transition-all
-        hover:border-[#958FEF] hover:shadow-[0px_0px_35px_0px_#8A82D440] duration-300
+      hover:border-[#958FEF] hover:shadow-[0px_0px_35px_0px_#8A82D440] duration-250
     "
     >
       <div className="flex flex-col justify-between h-full gap-6">
@@ -64,16 +66,16 @@ const CourseCardLg = ({ course }: CourseCardLgType) => {
             </p>
           </div>
           {/* Details Button */}
-          <Button
-            variant="primary"
-            className="h-12 px-6.25 text-xl leading-none font-medium"
-          >
-            Details
-          </Button>
+          <Link to={`/courses/${course.id}`}>
+            <Button
+              variant="primary"
+              className="h-12 px-6.25 text-xl leading-none font-medium"
+            >
+              Details
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
-
-export default CourseCardLg;

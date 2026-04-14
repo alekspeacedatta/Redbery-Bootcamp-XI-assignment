@@ -6,6 +6,8 @@ import { CourseInProgressCard } from "./CourseInProgressCard";
 
 export const CoursesInProgress = () => {
   const isAuth = useAuthStore((state) => state.isAuth);
+  const setAuthMode = useAuthStore((state) => state.setAuthMode);
+  const openModal = useAuthStore((state) => state.openModal);
   const { data, isLoading, isError } = useGetCoursesInProgress(isAuth);
   const toggleEnrolledCourses = useUserStore(
     (state) => state.setEnrolledSidebar,
@@ -14,6 +16,11 @@ export const CoursesInProgress = () => {
     isAuth && (isLoading || isError || !data || data.length === 0);
 
   if (shouldHideSection) return null;
+
+  const handleLoginClick = () => {
+    setAuthMode("login");
+    openModal();
+  };
 
   return (
     <MaxWidth className="w-full">
@@ -27,7 +34,7 @@ export const CoursesInProgress = () => {
               Pick up where you left
             </p>
             <Button
-              onClick={toggleEnrolledCourses}
+              onClick={isAuth ? toggleEnrolledCourses : handleLoginClick}
               variant="link"
               className="text-xl text-[#4F46E5] font-medium leading-none underline"
             >

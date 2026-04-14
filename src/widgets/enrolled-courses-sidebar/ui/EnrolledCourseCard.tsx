@@ -1,4 +1,5 @@
 import type { EnrolledCourseType } from "@/entities/enrolled";
+import { useUserStore } from "@/entities/session";
 import { Button } from "@/shared/ui";
 import {
   faCalendarAlt,
@@ -7,6 +8,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { faPeopleGroup, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 type EnrolledCourseCardType = {
   enrolledCourse: EnrolledCourseType;
@@ -28,9 +30,13 @@ export const EnrolledCourseCard = ({
         enrolledCourse.schedule.location || "No location (Online sessions)",
     },
   ];
+
+  const setEnrolledSidebar = useUserStore((state) => state.setEnrolledSidebar)
   return (
     <div
       className="
+        hover:-translate-y-1 cursor-default duration-200
+        hover:border-[#958FEF] hover:shadow-[0px_0px_35px_0px_#8A82D440]
         flex flex-col  gap-2 bg-[#FFFFFF] rounded-xl border-0.5
         border-[#B7B3F4] p-5 col-span-1 
     "
@@ -96,12 +102,15 @@ export const EnrolledCourseCard = ({
             ></div>
           </div>
         </div>
-        <Button
-          variant="outline"
-          className="py-2.75 px-10 font-medium leading-6 "
-        >
-          View
-        </Button>
+        <Link to={`/courses/${enrolledCourse.id}`}> 
+          <Button
+            onClick={setEnrolledSidebar}
+            variant="outline"
+            className="py-2.75 px-10 font-medium leading-6 "
+          >
+            View
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -1,0 +1,1 @@
+export { SingleCourseInfo } from './ui/SingleCourseInfo'

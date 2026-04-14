@@ -2,6 +2,7 @@ import type { EnrolledCourseType } from "@/entities/enrolled";
 import { Button } from "@/shared/ui";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 type CourseInProgressCardType = {
   enrolledCourse: EnrolledCourseType;
@@ -12,8 +13,10 @@ export const CourseInProgressCard = ({
   return (
     <div
       className="
-        flex flex-col  gap-2 bg-[#FFFFFF] rounded-xl border-0.5
-        border-[#B7B3F4] p-5 col-span-1 
+        hover:border-[#958FEF] hover:shadow-[0px_0px_35px_0px_#8A82D440] duration-250
+        hover:-translate-y-1.5 cursor-default
+        flex flex-col  gap-2 bg-[#FFFFFF] rounded-xl border
+        border-[#F5F5F5] p-5 col-span-1 
     "
     >
       {/* Course Image, lecturer, rate, name */}
@@ -60,9 +63,11 @@ export const CourseInProgressCard = ({
             ></div>
           </div>
         </div>
-        <Button variant="outline" className="py-2.75 px-6.25">
-          View
-        </Button>
+        <Link to={`/courses/${enrolledCourse.id}`}>
+          <Button variant="outline" className="py-2.75 px-6.25">
+            View
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { HomePage } from "@/pages/home";
 import { MainLayout } from "../layouts";
 import { createBrowserRouter } from "react-router";
 import { CourseCatalogPage } from "@/pages/catalog";
+import { SingleCoursePage } from "@/pages/single-course";
 
 export const router = createBrowserRouter([
   {
@@ -11,6 +12,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "browse-courses", element: <CourseCatalogPage /> },
+      { path: 'courses/:id', element: <SingleCoursePage/> }
     ],
   },
 ]);

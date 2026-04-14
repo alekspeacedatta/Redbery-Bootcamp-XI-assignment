@@ -9,18 +9,20 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 type CourseCardSmType = {
   course: Course;
 };
 
-const CourseCardSm = ({ course }: CourseCardSmType) => {
+export const CourseCardSm = ({ course }: CourseCardSmType) => {
   return (
     <div
       key={course.id}
       className="
         bg-[#FFFFFF] rounded-xl p-5 border border-[#F5F5F5] transition-all
-        hover:border-[#958FEF] hover:shadow-[0px_0px_35px_0px_#8A82D440] duration-300
+        hover:-translate-y-1 cursor-default
+        hover:border-[#958FEF] hover:shadow-[0px_0px_35px_0px_#8A82D440] duration-150
     "
     >
       <div className="flex flex-col gap-4.5 h-full justify-between">
@@ -89,16 +91,16 @@ const CourseCardSm = ({ course }: CourseCardSmType) => {
             </p>
           </div>
           {/* Details Button */}
-          <Button
-            variant="primary"
-            className="py-3 px-6.25 leading-6 font-medium"
-          >
-            Details
-          </Button>
+          <Link to={`/courses/${course.id}`} state={{ from: "browse" }}>
+            <Button
+              variant="primary"
+              className="py-3 px-6.25 leading-6 font-medium"
+            >
+              Details
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
-
-export default CourseCardSm;

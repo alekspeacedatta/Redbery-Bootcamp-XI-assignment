@@ -2,6 +2,7 @@ import { useAuthStore, useUserStore } from "@/entities/session";
 import { useGetEnrolledCourses } from "../hooks/useGetEnrolledCourses";
 import { Button, EmptyBoxIcon } from "@/shared/ui";
 import { EnrolledCourseCard } from "./EnrolledCourseCard";
+import { Link } from "react-router-dom";
 
 export const EnrolledSidebar = () => {
   const isAuth = useAuthStore((state) => state.isAuth);
@@ -69,9 +70,13 @@ export const EnrolledSidebar = () => {
                       started.
                     </p>
                   </div>
-                  <Button variant="primary" className="h-14.5 px-6.25">
-                    Browse Courses
-                  </Button>
+                  <Link to='/browse-courses'> 
+                    <Button variant="primary" className="h-14.5 px-6.25"
+                      onClick={setEnrolledSidebar}
+                    >
+                      Browse Courses
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

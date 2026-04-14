@@ -1,6 +1,6 @@
-import type { Course } from "@/entities/course/model/types";
-import CourseCardLg from "@/entities/course/ui/CourseCard/CourseCardLg";
-import CourseCardSm from "@/entities/course/ui/CourseCard/CourseCardSm";
+import type { Course } from "../../model/types";
+import { CourseCardLg } from "../../ui/CourseCard/CourseCardLg";
+import { CourseCardSm } from "../../ui/CourseCard/CourseCardSm";
 
 interface Props {
   course: Course;

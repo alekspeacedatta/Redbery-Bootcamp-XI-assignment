@@ -47,13 +47,16 @@ export const CoursesCatalog = () => {
           </h2>
         )}
       </div>
+      {/* Pagination Buttons */}
       <div className="flex items-center gap-2 justify-center">
+        {/* Prev Button */}
         <PaginationButton
           onClick={() => setPage((p) => p - 1)}
           disabled={page === 1}
         >
           <FontAwesomeIcon icon={faArrowLeft} />
         </PaginationButton>
+        {/* Middle Numbered Buttons  */}
         {pages.map((button) => (
           <PaginationButton
             onClick={() => setPage(button)}
@@ -63,6 +66,7 @@ export const CoursesCatalog = () => {
             {button}
           </PaginationButton>
         ))}
+        {/* Next Button */}
         <PaginationButton
           onClick={() => setPage((p) => p + 1)}
           disabled={page === lastPage}

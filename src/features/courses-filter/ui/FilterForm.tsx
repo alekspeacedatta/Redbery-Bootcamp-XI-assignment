@@ -49,8 +49,7 @@ export const FilterForm = () => {
   return (
     // Filters Wrapper
     <div
-      className="f
-        lex flex-col gap-8 w-[20%] sticky top-8 max-h-screen overflow-y-auto 
+      className="flex flex-col gap-8 w-[20%] sticky top-8 max-h-screen overflow-y-auto 
         scrollbar-none
     "
     >
@@ -85,11 +84,11 @@ export const FilterForm = () => {
         ) : null}
       </div>
       {/* Filters Wrapper */}
-      <form className="flex flex-col gap-14">
+      <div className="flex flex-col gap-14">
         {/* Filter By Catergories */}
         <section className="flex flex-col gap-6">
           <label className="text-lg text-[#666666] font-medium leading-none">
-            Development
+            Categories
           </label>
           {/* Categories Wrapper */}
           <div className="flex flex-wrap gap-2">
@@ -115,7 +114,6 @@ export const FilterForm = () => {
                   }
                 />
                 {item.name}
-                <input type="checkbox" hidden />
               </FilterWrapper>
             ))}
           </div>
@@ -141,7 +139,6 @@ export const FilterForm = () => {
                   removeId={removeTopicId}
                 >
                   {item.name}
-                  <input type="checkbox" hidden />
                 </FilterWrapper>
               ))}
           </div>
@@ -166,17 +163,16 @@ export const FilterForm = () => {
                   src={item.avatar}
                   alt="Instructor Avatar"
                   className="
-                                    h-7.5 w-7.5
-                                    rounded-sm object-cover
-                                "
+                      h-7.5 w-7.5
+                      rounded-sm object-cover
+                  "
                 />
                 {item.name}
-                <input type="checkbox" hidden />
               </FilterWrapper>
             ))}
           </div>
         </section>
-      </form>
+      </div>
     </div>
   );
 };
