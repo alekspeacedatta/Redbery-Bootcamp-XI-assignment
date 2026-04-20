@@ -4,15 +4,20 @@ import { createBrowserRouter } from "react-router";
 import { CourseCatalogPage } from "@/pages/catalog";
 import { SingleCoursePage } from "@/pages/single-course";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <MainLayout />,
+      errorElement: <div>Something went wrong</div>,
+      children: [
+        { index: true, element: <HomePage /> },
+        { path: "browse-courses", element: <CourseCatalogPage /> },
+        { path: 'courses/:id', element: <SingleCoursePage/> }
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <MainLayout />,
-    errorElement: <div>Something went wrong</div>,
-    children: [
-      { index: true, element: <HomePage /> },
-      { path: "browse-courses", element: <CourseCatalogPage /> },
-      { path: 'courses/:id', element: <SingleCoursePage/> }
-    ],
-  },
-]);
+    basename: '/Redbery-Bootcamp-XI-assignment'
+  }
+);
