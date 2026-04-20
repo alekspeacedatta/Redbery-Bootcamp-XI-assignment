@@ -1,5 +1,5 @@
 import type { EnrolledCourseType } from "@/entities/enrolled";
-import { apiInstance } from "@/shared/api";
+import { apiInstance, ENROLLMENTS } from "@/shared/api";
 
 interface EnrolledCourseResponse {
   data: EnrolledCourseType[];
@@ -7,7 +7,7 @@ interface EnrolledCourseResponse {
 
 export const getEnrolledCourses = async (): Promise<EnrolledCourseType[]> => {
   const { data } =
-    await apiInstance.get<EnrolledCourseResponse>("/enrollments");
+    await apiInstance.get<EnrolledCourseResponse>(ENROLLMENTS.ENROLLMENTS);
 
   return data.data;
 };

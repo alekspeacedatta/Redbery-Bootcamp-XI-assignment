@@ -17,7 +17,7 @@ export const useUserStore = create<UserStoreType>((set) => ({
   setEnrolledSidebar: () => {
     set((state) => ({ enrolledSidebar: !state.enrolledSidebar }));
   },
-  setIsProfileOpen: (value) => {
+  setIsProfileOpen: (value : boolean) => {
     set({ isProfileOpen: value });
   },
   setUser: (userData) => {

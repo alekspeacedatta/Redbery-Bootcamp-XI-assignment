@@ -1,4 +1,4 @@
-import { getWeeklySchedule } from "@/features/schedule-form/api/get-weekly-schedule"
+import { getWeeklySchedule } from "@/features/enroll-form/api/get-weekly-schedule"
 import { SCHEDULE_KEYS } from "@/shared/api"
 import { useQuery } from "@tanstack/react-query"
 

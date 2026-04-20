@@ -1,5 +1,5 @@
 import { ProfileIcon, useUserStore } from "@/entities/session";
-import { ProfileForm } from "@/features/profile";
+import { ProfileForm } from "@/features/profile-update";
 import { ModalCard } from "@/shared/ui";
 
 export const ProfileModal = () => {

@@ -27,3 +27,8 @@ export const SCHEDULE = {
   TIME_SLOTS: ( id: number ) => `/courses/${id}/time-slots`,
   SESSION_TYPE: (id: number) => `/courses/${id}/session-types`
 } as const
+
+export const ENROLLMENTS = {
+  ENROLLMENTS: '/enrollments',
+  ENROLLMENTS_COMPLETE: (id : number) => `/enrollments/${id}/complete`,
+}  as const

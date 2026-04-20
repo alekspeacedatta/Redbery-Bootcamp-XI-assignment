@@ -1,4 +1,4 @@
-import { getSesstionType } from "@/features/schedule-form/api/get-session-type"
+import { getSesstionType } from "@/features/enroll-form/api/get-session-type"
 import { SCHEDULE_KEYS } from "@/shared/api"
 import { useQuery } from "@tanstack/react-query"
 

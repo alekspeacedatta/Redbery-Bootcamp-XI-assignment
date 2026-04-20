@@ -1,4 +1,4 @@
-import { getTimeSlot } from "@/features/schedule-form/api/get-time-slot"
+import { getTimeSlot } from "@/features/enroll-form/api/get-time-slot"
 import { SCHEDULE_KEYS } from "@/shared/api"
 import { useQuery } from "@tanstack/react-query"
 

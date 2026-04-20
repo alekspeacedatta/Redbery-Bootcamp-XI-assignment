@@ -5,20 +5,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faClock } from "@fortawesome/free-regular-svg-icons";
 import { faBriefcase, faBullhorn, faChain, faCode, faPaintBrush, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Badge } from "@/shared/ui";
+import { useCourseStore } from "@/entities/course";
 
 interface Props {
-    onCategory: ( cat: string ) => void
+    onCategory: ( cat: string ) => void,
+    setBasePrice: ( value : number ) => void,
 }
 
-export const SingleCourseInfo = ( { onCategory } : Props ) => {
+export const SingleCourseInfo = ( { onCategory, setBasePrice } : Props ) => {
+
     const { id } = useParams();
     const { data: singleCourse, isLoading, isError, error } = useSingleCourse(Number(id));
+
+    const setCoursePrice = useCourseStore((state) => state.setCoursePrice);
+    
+    useEffect(() => {
+        setBasePrice(Number(singleCourse?.basePrice));
+    })
 
     useEffect(() => {
         if (singleCourse?.category.name) {
         onCategory?.(singleCourse.category.name);
         }
+        setCoursePrice(Number(singleCourse?.basePrice))
     }, [singleCourse]);
+
 
     if(isLoading) return <p>Loading...</p>
     if(isError) return <p>{error.message}</p>
