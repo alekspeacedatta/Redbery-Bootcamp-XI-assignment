@@ -18,6 +18,6 @@ export const router = createBrowserRouter(
     },
   ],
   {
-      base: '/Course-Marketplace/',
+      basename: '/Course-Marketplace/',
   }
 );
