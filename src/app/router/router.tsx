@@ -18,6 +18,6 @@ export const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/Redbery-Bootcamp-XI-assignment'
+      base: '/Course-Marketplace/',
   }
 );
