@@ -6,7 +6,7 @@ import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Redbery-Bootcamp-XI-assignment/',
+  base: '/Course-Marketplace/',
   plugins: [react(), tailwindcss(), svgr()],
   resolve: {
     alias: {
