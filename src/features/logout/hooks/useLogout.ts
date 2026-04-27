@@ -16,7 +16,7 @@ export const useLogout = () => {
       clearUser();
       queryClient.removeQueries({ queryKey: SESSION_KEYS.PROGRESS });
       queryClient.removeQueries({ queryKey: SESSION_KEYS.USER });
-      window.location.href = "/";
+      window.location.href = "/Course-Marketplace";
     },
     onError: (error) => {
       console.error("Logout Error", error);
